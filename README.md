@@ -20,7 +20,7 @@ https://github.com/BenJooYT/taiga-s1-android/releases/download/v1/engine_run.mp4
 ![Crankcase](assets/twin_block.png) ![Head](assets/head_twin.png)
 ![Flywheel](assets/flywheel.png) ![Flange demo](assets/flange.png)
 
-Interactive viewer with exploded assembly: open `site/index.html` (or serve the `site/` folder) — Three.js, orbit + explode slider, works offline.
+Interactive viewer with exploded assembly: open `docs/index.html` (or serve the `docs/` folder) — Three.js, orbit + explode slider, works offline.
 
 ## Reproduce it on Termux/Android
 
@@ -33,7 +33,7 @@ Interactive viewer with exploded assembly: open `site/index.html` (or serve the 
 
 ## Files
 
-- `site/` — interactive mockup website (viewer, exploded assembly, video, gallery, FCStd downloads)
+- `docs/` — interactive mockup website (viewer, exploded assembly, video, gallery, FCStd downloads)
 - `android/` — `run.sh` (tests/demo/GUI commands) + goal JSONs (`my_goals.json`, `engine*.json`)
 - `assets/` — progress + final photos
 - Upstream model + runtime: [shhivv/taiga-s1](https://github.com/shhivv/taiga-s1) (MIT)
