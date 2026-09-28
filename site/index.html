@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twin Engine — Built on a Phone by Taiga-S1</title>
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{"imports": {"three": "./vendor/three.module.js", "three/addons/": "./vendor/"}}
+</script>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Twin-Cylinder Engine Mockup</h1>
+    <p>Modeled by <strong>Taiga-S1</strong> (1.2M-param CAD agent) driving FreeCAD — entirely on an Android phone. Every part IoU 1.0.</p>
+  </div>
+  <nav><a href="#viewer">Viewer</a><a href="#video">Run test</a><a href="#gallery">Gallery</a><a href="#files">Files</a><a href="#setup">Setup</a></nav>
+</header>
+<main>
+  <section id="viewer">
+    <aside id="panel">
+      <h2>Views</h2>
+      <div id="partlist"></div>
+      <h2>Assembly</h2>
+      <label class="row">Explode <input id="explode" type="range" min="0" max="1" step="0.01" value="0"></label>
+      <label class="row"><input id="spin" type="checkbox" checked> Auto-rotate</label>
+      <div id="stats"></div>
+    </aside>
+    <div id="stage"><canvas id="c"></canvas><div id="caption"></div><div id="err"></div></div>
+  </section>
+  <section id="video">
+    <h2>Run test — one crank revolution</h2>
+    <video src="media/engine_run.mp4" controls loop muted playsinline></video>
+    <p>Pistons on opposed sine strokes, flywheel + pulley spinning. 72 frames rendered in FreeCAD, encoded with ffmpeg.</p>
+  </section>
+  <section id="gallery">
+    <h2>Parts gallery</h2>
+    <div id="grid"></div>
+  </section>
+  <section id="files">
+    <h2>Download the models</h2>
+    <ul id="dllist"></ul>
+  </section>
+  <section id="setup">
+    <h2>Reproduce it on Termux/Android</h2>
+    <ol>
+      <li>Install Termux (F-Droid) + <code>pkg install proot-distro</code>, then <code>proot-distro install debian</code>.</li>
+      <li>Inside Debian: <code>apt-get install -y freecad python3 python3-venv x11-apps</code>; <code>python3 -m venv /root/venv-taiga</code>; <code>/root/venv-taiga/bin/pip install torch numpy safetensors huggingface_hub pytest</code>.</li>
+      <li>Clone <code>shhivv/taiga-s1</code> to <code>/root/taiga-s1</code> and <code>pip install -e '.[dev]'</code>. Workers use system python: <code>FREECAD_PYTHON=/usr/bin/python3 FREECAD_LIB=/usr/lib/freecad-python3/lib</code> plus the FreeCAD Mod dirs on <code>PYTHONPATH</code> (see <code>scripts/run.sh</code>).</li>
+      <li>GUI: <code>pkg install x11-repo termux-x11-nightly</code>, install the Termux:X11 APK, <code>termux-x11 :0</code>, launch FreeCAD with the socket-server macro, drive it with <code>scripts/gui_demo.py --goals my_goals.json --name my_part</code>.</li>
+      <li>Full scripts + goal files: <code>scripts/</code> in this repo.</li>
+    </ol>
+  </section>
+</main>
+<footer><p>Parts: Taiga-S1 + FreeCAD 1.0 on-device · Assembly + animation: scripted placements · This page: static Three.js, works offline.</p></footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
