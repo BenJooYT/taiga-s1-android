@@ -37,3 +37,5 @@ Interactive viewer with exploded assembly: open `docs/index.html` (or serve the 
 - `android/` — `run.sh` (tests/demo/GUI commands) + goal JSONs (`my_goals.json`, `engine*.json`)
 - `assets/` — progress + final photos
 - Upstream model + runtime: [shhivv/taiga-s1](https://github.com/shhivv/taiga-s1) (MIT)
+
+**Interactive viewer:** https://benjooyt.github.io/taiga-s1-android/ (orbit, exploded assembly, video, downloads)
